@@ -31,6 +31,7 @@ function onFormInput() {
         Notiflix.Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
+        clearMarkup();
         return;
       }
       if (data.length <= 10) {
@@ -46,8 +47,7 @@ function onFormInput() {
     })
     .catch(err => {
       Notiflix.Notify.failure('Oops, there is no country with that name');
-      countriesList.innerHTML = '';
-      oneCountryContainer.innerHTML = '';
+      clearMarkup();
       return err;
     });
 }
@@ -82,4 +82,9 @@ function createCountriesListMarkup(countries) {
 </li>`;
     })
     .join('');
+}
+
+function clearMarkup() {
+  countriesList.innerHTML = '';
+  oneCountryContainer.innerHTML = '';
 }
