@@ -20,8 +20,7 @@ function onFormInput() {
   console.log(searchBox.value);
   const inputData = searchBox.value.trim();
   if (inputData === '') {
-    oneCountryContainer.innerHTML = '';
-    countriesList.innerHTML = '';
+    clearMarkup();
     return;
   }
 
